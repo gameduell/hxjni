@@ -18,6 +18,8 @@
 	<set name="tool" value="exe"/>
 	<set name="ndll-tool" value="dll"/>
 	<set name="SLIBEXT" value=".a"/>
+    
+    <set name="name_extra" value="-v7" if="HXCPP_ARMV7" />
 	
 	<target id="NDLL" output="${name_prefix}hxjni${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
 		

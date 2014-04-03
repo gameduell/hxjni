@@ -234,7 +234,7 @@ void JNIInit(JNIEnv *env)
 
 value hxjni_jni_init_callback(value inCallback)
 {
-      ELOG("initialized jni");
+   ELOG("initialized jni");
    gObjectKind = alloc_kind();
    if (!gCallback)
       gCallback = new AutoGCRoot(inCallback);
@@ -1309,6 +1309,7 @@ JAVA_EXPORT jobject JNICALL Java_org_haxe_hxjni_NativeInterface_releaseReference
 value CallHaxe(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject inArgs)
 {
    //ELOG("CallHaxe %p", gCallback);
+   fflush(stdout);
    if (gCallback)
    {
       value objValue = (value)handle;
