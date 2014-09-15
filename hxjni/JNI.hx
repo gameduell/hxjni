@@ -20,6 +20,7 @@ class JNI {
             initialized = true;
             var method = Lib.load ("hxjni", "hxjni_jni_init_callback", 1);
             method (onCallback);
+
             
         }
         
@@ -55,7 +56,6 @@ class JNI {
     public static function createStaticMethod (className:String, memberName:String, signature:String, useArray:Bool = false):Dynamic {
         
         init ();
-        
         var method = new JNIMethod (hxjni_jni_create_method (className, memberName, signature, true));
         return method.getStaticMethod (useArray);
         

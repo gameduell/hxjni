@@ -2,8 +2,6 @@
 	
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 	
-	<set name="mobile" value="1" if="android"/>
-	
 	<files id="src">
 		
 		<compilerflag value="-Iinclude"/>
@@ -13,18 +11,10 @@
 		<file name="src/Object.cpp"/>
 		
 	</files>
-	
-	<set name="ARM_ARCH" value="-v7" if="HXCPP_ARMV7"/>
-	<set name="tool" value="exe"/>
-	<set name="ndll-tool" value="dll"/>
-	<set name="SLIBEXT" value=".a"/>
-    
-    <set name="name_extra" value="-v7" if="HXCPP_ARMV7" />
-	
-	<target id="NDLL" output="${name_prefix}hxjni${debug_extra}${name_extra}" tool="linker" toolid="${ndll-tool}">
+
+	<target id="NDLL" output="${LIBPREFIX}hxjni${DBG}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
 		
 		<outdir name="../ndll/${BINDIR}"/>
-		<ext value=".ndll" unless="mobile"/>
 		<files id="src"/>
 		
 	</target>
@@ -36,3 +26,5 @@
 	</target>
 	
 </xml>
+
+

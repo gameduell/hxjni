@@ -993,6 +993,7 @@ struct JNIMethod : public hxjni::Object
       mIsConstructor = !strncmp(method,"<init>",6);
       
       jclass tmp = env->FindClass(val_string(inClass));
+
       mClass = (jclass)env->NewGlobalRef(tmp);
       env->DeleteLocalRef(tmp);
       const char *signature = val_string(inSignature);
