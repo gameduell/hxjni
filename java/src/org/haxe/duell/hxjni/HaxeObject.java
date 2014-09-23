@@ -1,14 +1,6 @@
-package org.haxe.hxjni;
+package org.haxe.duell.hxjni;
 
 import android.util.Log;
-import java.lang.Boolean;
-import java.lang.Byte;
-import java.lang.Character;
-import java.lang.Short;
-import java.lang.Integer;
-import java.lang.Long;
-import java.lang.Float;
-import java.lang.Double;
 
 public class HaxeObject
 {

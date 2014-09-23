@@ -114,8 +114,8 @@ struct JNIType
       switch(element)
       {
          case jniObjectString: name += "java/lang/String"; break;
-         case jniObjectHaxe: name += "org/haxe/hxjni/HaxeObject"; break;
-         case jniValueObject: name += "org/haxe/hxjni/Value"; break;
+         case jniObjectHaxe: name += "org/haxe/duell/hxjni/HaxeObject"; break;
+         case jniValueObject: name += "org/haxe/duell/hxjni/Value"; break;
 
          case jniUnknown:
          case jniObject: name += "java/lang/Object"; break;
@@ -215,16 +215,11 @@ void JNIInit(JNIEnv *env)
    if (sInit)
       return;
 
-/*
-   GameActivity = FindClass("org/haxe/hxjni/GameActivity");
-   postUICallback = env->GetStaticMethodID(GameActivity, "postUICallback", "(J)V");
-   */
-
    ObjectClass = FindClass("java/lang/Object");
-   ValueObject = FindClass("org/haxe/hxjni/Value");
+   ValueObject = FindClass("org/haxe/duell/hxjni/Value");
 
    HaxeObject   = JNIType(jniObjectHaxe,0).getClass(env);
-   HaxeObject_create = env->GetStaticMethodID(HaxeObject, "create", "(J)Lorg/haxe/hxjni/HaxeObject;");
+   HaxeObject_create = env->GetStaticMethodID(HaxeObject, "create", "(J)Lorg/haxe/duell/hxjni/HaxeObject;");
    __haxeHandle = env->GetFieldID(HaxeObject, "__haxeHandle", "J");
 
    JNIType::init(env);
@@ -542,7 +537,7 @@ const char *JNIParseType(const char *inStr, JNIType &outType,int inDepth=0)
             if (!strncmp(src,"java/lang/String;",17) ||
                 !strncmp(src,"java/lang/CharSequence;",23)  )
                outType = JNIType(jniObjectString,inDepth);
-            else if (!strncmp(src,"org/haxe/hxjni/HaxeObject;",24))
+            else if (!strncmp(src,"org/haxe/duell/hxjni/HaxeObject;",24))
                outType = JNIType(jniObjectHaxe,inDepth);
             else
                outType = JNIType(jniObject,inDepth);
@@ -1288,7 +1283,7 @@ extern "C"
 {
 
 
-JAVA_EXPORT void JNICALL Java_org_haxe_hxjni_NativeInterface_onCallback(JNIEnv * env, jobject obj, jlong handle)
+JAVA_EXPORT void JNICALL Java_org_haxe_duell_hxjni_NativeInterface_onCallback(JNIEnv * env, jobject obj, jlong handle)
 {
    AutoHaxe haxe("onCallback");
 
@@ -1299,7 +1294,7 @@ JAVA_EXPORT void JNICALL Java_org_haxe_hxjni_NativeInterface_onCallback(JNIEnv *
 }
 
 
-JAVA_EXPORT jobject JNICALL Java_org_haxe_hxjni_NativeInterface_releaseReference(JNIEnv * env, jobject obj, jlong handle)
+JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_releaseReference(JNIEnv * env, jobject obj, jlong handle)
 {
    AutoHaxe haxe("releaseReference");
    value val = (value)handle;
@@ -1328,7 +1323,7 @@ value CallHaxe(JNIEnv * env, jobject obj, jlong handle, jstring function, jobjec
 
 
 
-JAVA_EXPORT jobject JNICALL Java_org_haxe_hxjni_NativeInterface_callObjectFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
+JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObjectFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
 {
    AutoHaxe haxe("callObject");
 
@@ -1351,7 +1346,7 @@ JAVA_EXPORT jobject JNICALL Java_org_haxe_hxjni_NativeInterface_callObjectFuncti
 }
 
 
-JAVA_EXPORT jdouble JNICALL Java_org_haxe_hxjni_NativeInterface_callNumericFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
+JAVA_EXPORT jdouble JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callNumericFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
 {
    AutoHaxe haxe("callNumeric");
 

@@ -1,4 +1,4 @@
-package org.haxe.hxjni;
+package org.haxe.duell.hxjni;
 
 // Wrapper for native library
 
