@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<app title="HxJNI Test" 
+		 file="hxjnitest" 
+		 package="com.gameduell.hxjnitest" 
+		 version="0.0.1" 
+		 company="GameDuell GmbH" />
+
+	<main name="Main" />
+
+	<source path="Source" />
+
+    <duelllib name="hxjni" version ="1.*.*"/>
+    <duelllib name="duellkit" version="1.*.*" />
+    <duelllib name="unittest" version="1.*.*"/>
+    <platform-config>
+
+    	<android>
+
+    		<java-source name="HXJNITEST" path="java" />
+    		<permission name="android.permission.INTERNET" />
+
+    	</android>
+
+    </platform-config>
+	
+
+</project>
