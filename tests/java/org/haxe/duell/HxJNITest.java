@@ -41,10 +41,18 @@ import java.lang.Exception;
 	back to Haxe from Java.
 */
 public class HxJNITest extends Extension {
-	
+	static class Configs{
+        public int value1;
+        public String  value2;
+        public Configs(int val1, String val2)
+        {
+            value1 = val1;
+            value2 = val2;
+        }
+    }
 	private static final String TAG = "duell";
-	public static org.haxe.hxjni.HaxeObject haxeAppDelegate;
-	public static void initialize(org.haxe.hxjni.HaxeObject obj) 
+	public static org.haxe.duell.hxjni.HaxeObject haxeAppDelegate;
+	public static void initialize(org.haxe.duell.hxjni.HaxeObject obj)
 	{
 		haxeAppDelegate = obj;
 
@@ -63,6 +71,8 @@ public class HxJNITest extends Extension {
 				haxeAppDelegate.call0("testJtoHxNoParam");
 
 				haxeAppDelegate.call1("testJtoHxIntParam", 1);
+				haxeAppDelegate.call1("testJtoHxDynamicParam",new Configs(1,"hello"));
+
 				haxeAppDelegate.call1("testJtoHxStringParam", "testString");
 
 		    	int [] array = {1, 2, 3, 4, 5};

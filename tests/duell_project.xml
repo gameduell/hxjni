@@ -7,7 +7,7 @@
 		 version="0.0.1" 
 		 company="GameDuell GmbH" />
 
-	<main name="Main" />
+	<main name="HXJNITest" />
 
 	<source path="Source" />
 

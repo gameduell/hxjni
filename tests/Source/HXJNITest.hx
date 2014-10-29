@@ -14,6 +14,7 @@ class HXJNITest extends TestCase
 
     public function new ()
 	{
+        super();
 		trace(untyped cpp.vm.Thread.current().handle.mThreadNumber);
 
         hxjnitest_initialize_jni(this);
@@ -34,10 +35,14 @@ class HXJNITest extends TestCase
 		trace("testJtoHxNoParam worked");
 	}	
 
-	public function testJtoHxIntParam(param : Int) : Void 
+	public function testJtoHxDynamicParam(param : Dynamic) : Void
 	{
 		trace("testJtoHxIntParam worked with " + param);
 	}	
+	public function testJtoHxIntParam(param : Int) : Void
+	{
+		trace("testJtoHxIntParam worked with " + param);
+	}
 
 	public function testJtoHxStringParam(param : String) : Void 
 	{
@@ -77,7 +82,7 @@ class HXJNITest extends TestCase
 
 	static function main () : Void 
 	{
-		new Main();
+		new HXJNITest();
 	}
 
 }
