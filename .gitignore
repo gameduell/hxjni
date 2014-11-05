@@ -1,4 +1,5 @@
 ndll
 project/obj
 Export/
+.idea/
 *.iml
