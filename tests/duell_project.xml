@@ -11,9 +11,9 @@
 
 	<source path="Source" />
 
-    <duelllib name="hxjni" version ="1.*.*"/>
-    <duelllib name="duellkit" version="1.*.*" />
-    <duelllib name="unittest" version="1.*.*"/>
+    <duelllib name="hxjni" version ="1.0.0+"/>
+    <duelllib name="duellkit" version="1.0.0+" />
+    <duelllib name="unittest" version="1.0.0+"/>
     <platform-config>
 
     	<android>
