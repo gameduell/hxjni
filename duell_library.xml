@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project>
+<project xmlns="duell">
 
 	<ndll name="hxjni" build-file-path="project/Build.xml" bin-path="ndll" />
 	
 	<platform-config>
+		
 		<android>
 			<java-lib name="hxjni" path="java" />
 		</android>
+		
+		<documentation>
+			<documentation-folder library="hxjni" path="documentation" />
+		</documentation>
+		
 	</platform-config>
 	
 </project>
