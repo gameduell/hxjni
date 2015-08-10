@@ -2,10 +2,11 @@
 <project xmlns="duell">
 
 	<ndll name="hxjni" build-file-path="project/Build.xml" bin-path="ndll" />
-	
+
 	<platform-config>
 		
 		<android>
+			<proguard path="proguard.cfg" />
 			<java-lib name="hxjni" path="java" />
 		</android>
 		
@@ -14,5 +15,5 @@
 		</documentation>
 		
 	</platform-config>
-	
+
 </project>
