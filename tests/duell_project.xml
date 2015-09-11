@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	
-	<app title="HxJNI Test" 
-		 file="hxjnitest" 
-		 package="com.gameduell.hxjnitest" 
-		 version="0.0.1" 
+
+	<app title="HxJNI Test"
+		 file="hxjnitest"
+		 package="com.gameduell.hxjnitest"
+		 version="0.0.1"
 		 company="GameDuell GmbH" />
 
 	<main name="HXJNITest" />
 
 	<source path="Source" />
 
-    <duelllib name="hxjni" version ="1.0.0+"/>
-    <duelllib name="duellkit" version="1.0.0+" />
-    <duelllib name="unittest" version="1.0.0+"/>
+    <duelllib name="hxjni" version="1.0.0+"/>
+    <duelllib name="duellkit" version="5.0.0+" />
+    <duelllib name="unittest" version="5.0.0+"/>
     <platform-config>
 
     	<android>
@@ -24,6 +24,6 @@
     	</android>
 
     </platform-config>
-	
+
 
 </project>

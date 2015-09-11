@@ -24,63 +24,63 @@ class HXJNITest extends TestCase
 		trace("should be zero:" + hxjnitest_getx(javaObj));
 
 		hxjnitest_setx(javaObj, 10);
-		
+
 		trace("should be ten:" + hxjnitest_getx(javaObj));
 	}
 
 
-	public function testJtoHxNoParam() : Void 
+	public function testJtoHxNoParam() : Void
 	{
 		trace(cpp.vm.Thread.current().handle);
 		trace("testJtoHxNoParam worked");
-	}	
+	}
 
 	public function testJtoHxDynamicParam(param : Dynamic) : Void
 	{
 		trace("testJtoHxIntParam worked with " + param);
-	}	
+	}
 	public function testJtoHxIntParam(param : Int) : Void
 	{
 		trace("testJtoHxIntParam worked with " + param);
 	}
 
-	public function testJtoHxStringParam(param : String) : Void 
+	public function testJtoHxStringParam(param : String) : Void
 	{
 		trace("testJtoHxStringParam worked with " + param);
-	}	
+	}
 
-	public function testJtoHxIntArrayParam(param : Array<Int>) : Void 
+	public function testJtoHxIntArrayParam(param : Array<Int>) : Void
 	{
 		trace("testJtoHxIntArrayParam worked with " + param.toString());
 	}
 
-	public function testJtoHxFloatArrayParam(param : Array<Float>) : Void 
+	public function testJtoHxFloatArrayParam(param : Array<Float>) : Void
 	{
 		trace("testJtoHxFloatArrayParam worked with " + param.toString());
 	}
 
-	public function testJtoHxStringArrayParam(param : Array<String>) : Void 
+	public function testJtoHxStringArrayParam(param : Array<String>) : Void
 	{
 		trace("testJtoHxStringArrayParam worked with " + param.toString());
 	}
 
 	/// only string return is supported
-	public function testJtoHxNoParamWithStringReturn() : String 
+	public function testJtoHxNoParamWithStringReturn() : String
 	{
 		trace("testJtoHxNoParamWithReturn");
 		return "1";
-	}	
+	}
 
-	public function testJtoHxIntParamWithStringReturn(param : Int) : String 
+	public function testJtoHxIntParamWithStringReturn(param : Int) : String
 	{
 		trace("testJtoHxIntParamWithReturn");
 		return "" + param + 1;
-	}	
+	}
 
 
 	/// MAIN
 
-	static function main () : Void 
+	static function main () : Void
 	{
 		new HXJNITest();
 	}

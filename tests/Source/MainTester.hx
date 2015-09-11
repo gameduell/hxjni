@@ -6,7 +6,7 @@ import unittest.TestRunner;
 
 import FilesystemTest;
 
-import duell.DuellKit;
+import duellkit.DuellKit;
 
 class MainTester
 {
@@ -18,7 +18,7 @@ class MainTester
 
     static function start() : Void
     {
-        r = new TestRunner(testComplete);
+        r = new TestRunner(testComplete, DuellKit.instance().onError);
 		r.add(new HXJNITest());
 
         #if test
