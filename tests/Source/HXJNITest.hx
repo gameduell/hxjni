@@ -5,7 +5,7 @@ using StringTools;
 
 class HXJNITest extends TestCase
 {
-	private static var hxjnitest_initialize_jni = JNI.createStaticMethod ("org/haxe/duell/HxJNITest", "initialize", "(Lorg/haxe/hxjni/HaxeObject;)V");
+	private static var hxjnitest_initialize_jni = JNI.createStaticMethod ("org/haxe/duell/HxJNITest", "initialize", "(Lorg/haxe/duell/hxjni/HaxeObject;)V");
 	private static var hxjnitest_calljtohxmethods = JNI.createStaticMethod ("org/haxe/duell/HxJNITest", "callJtoHxMethods", "()V");
 	private static var hxjnitest_getinstance = JNI.createStaticMethod ("org/haxe/duell/HxJNITest", "getInstance", "()Lorg/haxe/duell/HxJNITest;");
 

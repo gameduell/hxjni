@@ -4,16 +4,16 @@
 	<ndll name="hxjni" build-file-path="project/Build.xml" bin-path="ndll" />
 
 	<platform-config>
-		
+
 		<android>
 			<proguard path="proguard.cfg" />
-			<java-lib name="hxjni" path="java" />
+			<java-source path="java" />
 		</android>
-		
+
 		<documentation>
 			<documentation-folder library="hxjni" path="documentation" />
 		</documentation>
-		
+
 	</platform-config>
 
 </project>
