@@ -57,7 +57,6 @@ DEFINE_ENTRY_POINT (hxjni_main);
 
 extern "C" int hxjni_register_prims () { return 0; }
 
-
 enum JNIElement
 {
    jniUnknown,
@@ -1350,7 +1349,12 @@ value CallHaxe(JNIEnv * env, jobject obj, jlong handle, jstring function, jobjec
 
 JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObjectFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
 {
-   AutoHaxe haxe("callObject");
+   jboolean is_copy;
+   const char *functionName = env->GetStringUTFChars(function, &is_copy);
+   __android_log_print(ANDROID_LOG_DEBUG, "trace", "callObject %s", functionName);
+   env->ReleaseStringUTFChars(function, functionName);
+
+   //AutoHaxe haxe("callObject");
 
    value result = CallHaxe(env,obj,handle,function,args);
 
@@ -1366,6 +1370,12 @@ JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObject
       ELOG("only string return is supported");
    }
    //jobject val = JAnonToHaxe(result);
+
+   #if __has_builtin(__builtin_trap)
+     // __builtin_trap();
+      #else
+      //(* (volatile int *) 0) = 0;
+      #endif
    
    return val;
 }
