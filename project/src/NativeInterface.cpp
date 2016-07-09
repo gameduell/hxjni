@@ -1361,12 +1361,6 @@ JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObject
    }
    //jobject val = JAnonToHaxe(result);
 
-   #if __has_builtin(__builtin_trap)
-     // __builtin_trap();
-      #else
-      //(* (volatile int *) 0) = 0;
-      #endif
-   
    return val;
 }
 
