@@ -57,6 +57,7 @@ DEFINE_ENTRY_POINT (hxjni_main);
 
 extern "C" int hxjni_register_prims () { return 0; }
 
+
 enum JNIElement
 {
    jniUnknown,
@@ -1309,6 +1310,8 @@ extern "C"
 
 JAVA_EXPORT void JNICALL Java_org_haxe_duell_hxjni_NativeInterface_onCallback(JNIEnv * env, jobject obj, jlong handle)
 {
+   AutoHaxe haxe("onCallback");
+
    ELOG("hxjni onCallback %p",(void *)handle);
    AutoGCRoot *root = (AutoGCRoot *)handle;
    val_call0( root->get() );
@@ -1318,6 +1321,7 @@ JAVA_EXPORT void JNICALL Java_org_haxe_duell_hxjni_NativeInterface_onCallback(JN
 
 JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_releaseReference(JNIEnv * env, jobject obj, jlong handle)
 {
+   AutoHaxe haxe("releaseReference");
    value val = (value)handle;
    RemoveJavaHaxeObjectRef(val);
    return 0;
@@ -1346,6 +1350,8 @@ value CallHaxe(JNIEnv * env, jobject obj, jlong handle, jstring function, jobjec
 
 JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObjectFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
 {
+   AutoHaxe haxe("callObject");
+
    value result = CallHaxe(env,obj,handle,function,args);
 
    jobject val = 0;
@@ -1360,13 +1366,15 @@ JAVA_EXPORT jobject JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callObject
       ELOG("only string return is supported");
    }
    //jobject val = JAnonToHaxe(result);
-
+   
    return val;
 }
 
 
 JAVA_EXPORT jdouble JNICALL Java_org_haxe_duell_hxjni_NativeInterface_callNumericFunction(JNIEnv * env, jobject obj, jlong handle, jstring function, jobject args)
 {
+   AutoHaxe haxe("callNumeric");
+
    value result = CallHaxe(env,obj,handle,function,args);
 
    double val = val_number(result);
