@@ -29,6 +29,7 @@
 
 #include <jni.h>
 #include <hx/CFFI.h>
+#include <pthread.h>
 
 namespace hxjni
 {
@@ -65,24 +66,6 @@ class Object
 		}
 
 	    int mRefCount;
-};
-
-struct AutoHaxe
-{
-   int base;
-   const char *message;
-   AutoHaxe(const char *inMessage)
-   {  
-      base = 0;
-      message = inMessage;
-      gc_set_top_of_stack(&base,true);
-      //__android_log_print(ANDROID_LOG_VERBOSE, "NME", "Enter %s %p", message, pthread_self());
-   }
-   ~AutoHaxe()
-   {
-      //__android_log_print(ANDROID_LOG_VERBOSE, "NME", "Leave %s %p", message, pthread_self());
-      gc_set_top_of_stack(0,true);
-   }
 };
 
 /// UTILS
